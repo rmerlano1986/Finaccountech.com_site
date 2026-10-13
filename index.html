@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINACCOUNTECH S.A.S. - Global Finance, Accounting & Technology</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#25b4be',
+                            darkCyan: '#1e939c',
+                            lightCyan: '#e6f7f8',
+                            navy: '#0f172a',
+                            slate: '#334155',
+                            accent: '#0284c7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .cyan-gradient-text {
+            background: linear-gradient(135deg, #25b4be 0%, #38b6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(37, 180, 190, 0.15), 0 8px 10px -6px rgba(37, 180, 190, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-cyan selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <div class="relative flex items-center justify-center w-10 h-10 rounded-full border-2 border-brand-cyan text-brand-cyan group-hover:bg-brand-cyan group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-dollar-sign text-lg font-bold"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-cyan transition-colors">
+                            FINACCOUNTECH <span class="text-xs text-brand-cyan font-semibold ml-0.5">S.A.S.</span>
+                        </span>
+                        <span class="text-[9px] uppercase tracking-wider text-slate-500 font-medium hidden sm:block">
+                            Global Finance, Accounting & Technology
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" data-i18n="nav_home" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="#servicios" data-i18n="nav_services" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="#mision-vision" data-i18n="nav_mv" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Misión y Visión</a>
+                    <a href="#nosotros" data-i18n="nav_about" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Sobre Nosotros</a>
+                    <a href="#ventajas" data-i18n="nav_why" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Por Qué Elegirnos</a>
+                    <a href="#contacto" data-i18n="nav_contact" class="text-sm font-medium text-slate-700 hover:text-brand-cyan transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Language Switcher & CTA Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Switcher Button -->
+                    <div class="relative inline-flex bg-slate-100 p-1 rounded-lg border border-slate-200">
+                        <button id="lang-es-btn" onclick="setLanguage('es')" class="px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 bg-brand-cyan text-white shadow-sm">
+                            ES
+                        </button>
+                        <button id="lang-en-btn" onclick="setLanguage('en')" class="px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 text-slate-600 hover:text-brand-cyan">
+                            EN
+                        </button>
+                    </div>
+
+                    <a href="#contacto" data-i18n="nav_cta" class="hidden lg:inline-block bg-brand-cyan hover:bg-brand-darkCyan text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md shadow-brand-cyan/20 transition-all duration-300 hover:shadow-lg">
+                        Agendar Consulta
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" type="button" class="text-slate-600 hover:text-brand-cyan focus:outline-none p-2" aria-label="Abrir Menú">
+                            <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" data-i18n="nav_home" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Inicio</a>
+            <a href="#servicios" data-i18n="nav_services" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Servicios</a>
+            <a href="#mision-vision" data-i18n="nav_mv" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Misión y Visión</a>
+            <a href="#nosotros" data-i18n="nav_about" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Sobre Nosotros</a>
+            <a href="#ventajas" data-i18n="nav_why" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Por Qué Elegirnos</a>
+            <a href="#contacto" data-i18n="nav_contact" class="mobile-link block py-2 text-slate-700 font-medium hover:text-brand-cyan">Contacto</a>
+            <a href="#contacto" data-i18n="nav_cta" class="mobile-link block w-full text-center bg-brand-cyan text-white py-2.5 rounded-lg font-semibold shadow-md mt-4">
+                Agendar Consulta
+            </a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative gradient-bg text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span data-i18n="hero_badge">Consultoría Financiera & Tecnológica Global</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight" data-i18n="hero_title">
+                        Transformación Financiera, <span class="cyan-gradient-text">ERPs & Operaciones</span> de Clase Mundial
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed" data-i18n="hero_desc">
+                        Impulsamos la eficiencia operativa e implementación tecnológica en empresas multinacionales mediante consultoría experta en ERPs (Joint ERP, Oracle Cloud, SAP), Centros de Servicios Compartidos (SSC), cumplimiento SAGRILAFT / PTEE y automatización financiera.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contacto" data-i18n="hero_btn_contact" class="w-full sm:w-auto bg-brand-cyan hover:bg-brand-darkCyan text-white px-8 py-3.5 rounded-lg text-base font-semibold shadow-lg shadow-brand-cyan/25 transition-all text-center">
+                            Contactar un Consultor <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#servicios" data-i18n="hero_btn_services" class="w-full sm:w-auto border border-slate-600 hover:border-brand-cyan text-slate-200 hover:text-white px-8 py-3.5 rounded-lg text-base font-semibold transition-all text-center bg-slate-800/40">
+                            Descubrir Servicios
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="pt-8 border-t border-slate-800 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-bold text-white" data-i18n="badge_bilingual_num">100%</div>
+                            <div class="text-xs text-slate-400 font-medium" data-i18n="badge_bilingual_text">Bilingüe (ES / EN)</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-brand-cyan" data-i18n="badge_exp_num">Global</div>
+                            <div class="text-xs text-slate-400 font-medium" data-i18n="badge_exp_text">Experiencia Multinacional</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white" data-i18n="badge_pmi_num">PMI</div>
+                            <div class="text-xs text-slate-400 font-medium" data-i18n="badge_pmi_text">Gestión de Proyectos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Logo Emblem -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md bg-slate-800/60 border border-slate-700/60 p-8 rounded-2xl backdrop-blur-sm shadow-2xl">
+                        <div class="flex flex-col items-center justify-center py-6 text-center space-y-6">
+                            <div class="relative w-full flex justify-center items-center py-4">
+                                <svg class="w-full h-auto text-brand-cyan/40 absolute top-0" viewBox="0 0 300 60" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M 30,50 L 150,10 L 270,50" />
+                                </svg>
+                                
+                                <div class="my-8 flex items-center space-x-3 bg-slate-900/80 px-6 py-4 rounded-xl border border-brand-cyan/30 shadow-lg">
+                                    <div class="w-12 h-12 rounded-full border-2 border-brand-cyan flex items-center justify-center text-brand-cyan text-xl">
+                                        <i class="fa-solid fa-dollar-sign font-bold"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <span class="text-xl font-black tracking-widest text-white">FINACCOUNTECH</span>
+                                        <p class="text-[10px] text-brand-cyan tracking-wider font-semibold">Global Services Specialists</p>
+                                    </div>
+                                </div>
+
+                                <svg class="w-full h-auto text-brand-cyan/40 absolute bottom-0" viewBox="0 0 300 60" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M 30,10 L 150,50 L 270,10" />
+                                </svg>
+                            </div>
+
+                            <div class="space-y-2 text-slate-300 text-sm">
+							    <p class="flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-check text-brand-cyan"></i>
+                                    <span data-i18n="hero_card_1">Acompañamos el crecimiento de la empresa</span>
+                                </p>
+                                <p class="flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-check text-brand-cyan"></i>
+                                    <span data-i18n="hero_card_2">ERP Implementaion - Joint ERP</span>
+                                </p>
+                                <p class="flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-check text-brand-cyan"></i>
+                                    <span data-i18n="hero_card_3">Shared Services Center (SSC) desde cero</span>
+                                </p>
+                                <p class="flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-check text-brand-cyan"></i>
+                                    <span data-i18n="hero_card_4">Sistemas SAGRILAFT / PTEE & Cumplimiento</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2" data-i18n="services_subtitle">Nuestras Soluciones</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="services_title">
+                    Servicios Especializados en Finanzas & Tecnología
+                </p>
+                <p class="mt-4 text-slate-600 text-base leading-relaxed" data-i18n="services_desc">
+                    Diseñamos e implementamos estrategias que optimizan los procesos contables, financieros y de cumplimiento normativo en su organización con estándares corporativos globales.
+                </p>
+            </div>
+
+            <!-- 4 Main Service Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-lightCyan text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6 font-semibold">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="s1_title">
+                            Implementación & Optimización de ERPs
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="s1_desc">
+                            Lideramos proyectos de implementación, migración y parametrización de ERPs líderes del mercado. Garantizamos una transición limpia e integración contable fluida.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s1_bullet1">Oracle Fusion Cloud & SAP S/4HANA</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s1_bullet2">Integración de Herramientas (Coupa, BlackLine)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s1_bullet3">Pruebas UAT & Migración de Datos</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-brand-cyan font-semibold text-sm hover:text-brand-darkCyan inline-flex items-center">
+                        <span data-i18n="learn_more">Saber más</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-lightCyan text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6 font-semibold">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="s2_title">
+                            Transformación Financiera & Rediseño
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="s2_desc">
+                            Rediseñamos flujos contables y financieros para maximizar la productividad, reduciendo tiempos de cierre operativo y mejorando el control interno.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s2_bullet1">Optimización de Cierre Contable (Record-to-Report)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s2_bullet2">Automatización & Reportes Financieros (BI)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s2_bullet3">Estandarización de Políticas Financieras</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-brand-cyan font-semibold text-sm hover:text-brand-darkCyan inline-flex items-center">
+                        <span data-i18n="learn_more">Saber más</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-lightCyan text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6 font-semibold">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="s3_title">
+                            Centros de Servicios Compartidos (SSC)
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="s3_desc">
+                            Diseño, migración e implementación de modelos de Servicios Compartidos para operaciones multinacionales y transfronterizas.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s3_bullet1">Estrategia de Migración y Transition Management</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s3_bullet2">Definición de SLAs y KPIs de Rendimiento</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s3_bullet3">Capacitación de Equipos Bilingües</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-brand-cyan font-semibold text-sm hover:text-brand-darkCyan inline-flex items-center">
+                        <span data-i18n="learn_more">Saber más</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 (LAFT / SAGRILAFT / PTEE) -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-lightCyan text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6 font-semibold">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="s4_title">
+                            Sistemas LAFT, SAGRILAFT & PTEE
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="s4_desc">
+                            Diseño, implementación y auditoría de sistemas de gestión de riesgos LA/FT/FPADM y programas de transparencia ética (PTEE), además de servicio de Oficial de Cumplimiento.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s4_bullet1">Diseño e Implementación SAGRILAFT y PTEE</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s4_bullet2">Oficial de Cumplimiento Externalizado</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-cyan mr-2"></i> <span data-i18n="s4_bullet3">Debida Diligencia & Auditoría de Riesgos</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-brand-cyan font-semibold text-sm hover:text-brand-darkCyan inline-flex items-center">
+                        <span data-i18n="learn_more">Saber más</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="mision-vision" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2" data-i18n="mv_subtitle">Nuestra Filosofía</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="mv_title">
+                    Misión, Visión & Valores Corporativos
+                </p>
+                <p class="mt-4 text-slate-400 text-base" data-i18n="mv_desc">
+                    El marco estratégico que guía nuestras decisiones y el compromiso con nuestros clientes globales.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Mission Card -->
+                <div class="bg-slate-800/70 p-8 rounded-2xl border border-slate-700/80 shadow-lg relative">
+                    <div class="w-12 h-12 bg-brand-cyan/20 text-brand-cyan rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white" data-i18n="mission_title">Misión</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed" data-i18n="mission_desc">
+                        Proporcionar soluciones integrales de consultoría en Finanzas, Contabilidad y Tecnología a organizaciones globales y multinacionales, optimizando sus procesos operativos e implementando ERPs y sistemas de cumplimiento de clase mundial con estándares de alta calidad, ética y precisión.
+                    </p>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="bg-slate-800/70 p-8 rounded-2xl border border-slate-700/80 shadow-lg relative">
+                    <div class="w-12 h-12 bg-brand-cyan/20 text-brand-cyan rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white" data-i18n="vision_title">Visión</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed" data-i18n="vision_desc">
+                        Ser reconocidos internacionalmente como la firma consultora referente en transformación financiera, implementaciones ERP y gobierno corporativo en LATAM y Norteamérica, destacándonos por la excelencia de nuestro equipo bilingüe y el impacto sostenible en nuestros clientes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Core Values Grid -->
+            <div>
+                <h4 class="text-center text-lg font-bold text-slate-200 mb-8" data-i18n="values_title">Valores Fundamentales</h4>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/40 text-center">
+                        <div class="text-brand-cyan text-2xl mb-3"><i class="fa-solid fa-star"></i></div>
+                        <h5 class="font-bold text-white text-base mb-1" data-i18n="val_1_t">Excelencia Financiera</h5>
+                        <p class="text-slate-400 text-xs" data-i18n="val_1_d">Rigurosidad técnica y calidad analítica en cada proyecto contable y tecnológico.</p>
+                    </div>
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/40 text-center">
+                        <div class="text-brand-cyan text-2xl mb-3"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h5 class="font-bold text-white text-base mb-1" data-i18n="val_2_t">Integridad & Cumplimiento</h5>
+                        <p class="text-slate-400 text-xs" data-i18n="val_2_d">Alineación estricta a normativas éticas, legales y de transparencia internacional.</p>
+                    </div>
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/40 text-center">
+                        <div class="text-brand-cyan text-2xl mb-3"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h5 class="font-bold text-white text-base mb-1" data-i18n="val_3_t">Innovación Tecnológica</h5>
+                        <p class="text-slate-400 text-xs" data-i18n="val_3_d">Adopción continua de mejores prácticas en ERPs, BI y automatización.</p>
+                    </div>
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/40 text-center">
+                        <div class="text-brand-cyan text-2xl mb-3"><i class="fa-solid fa-handshake"></i></div>
+                        <h5 class="font-bold text-white text-base mb-1" data-i18n="val_4_t">Compromiso Bilingüe</h5>
+                        <p class="text-slate-400 text-xs" data-i18n="val_4_d">Comunicación fluida y adaptabilidad cultural en ambientes multiculturales.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block bg-brand-lightCyan text-brand-cyan text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-i18n="about_subtitle">
+                        Sobre Nosotros
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        FINACCOUNTECH S.A.S.
+                    </h2>
+                    <p class="text-sm font-semibold text-brand-cyan uppercase tracking-wide">
+                        Global Finance, Accounting & Technology S.A.S.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-base" data-i18n="about_p1">
+                        Somos una firma consultora especializada en la convergencia estratégica entre <strong>Finanzas, Contabilidad y Tecnologías de la Información</strong>. Nacemos para responder a la necesidad de las organizaciones modernas de contar con procesos ágiles, escalables y respaldados por sistemas ERP de vanguardia.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-base" data-i18n="about_p2">
+                        Nuestro equipo está conformado por profesionales <strong>100% bilingües (Español / Inglés)</strong> con extensa trayectoria ejecutiva en entornos multinacionales y corporativos en LATAM y Norteamérica.
+                    </p>
+
+                    <!-- Highlights grid -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <i class="fa-solid fa-language text-2xl text-brand-cyan mb-2"></i>
+                            <h4 class="font-bold text-slate-900 text-sm" data-i18n="about_box1_title">Equipo Bilingüe</h4>
+                            <p class="text-xs text-slate-500 mt-1" data-i18n="about_box1_desc">Soporte y gestión nativa en inglés y español para proyectos globales.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60">
+                            <i class="fa-solid fa-briefcase text-2xl text-brand-cyan mb-2"></i>
+                            <h4 class="font-bold text-slate-900 text-sm" data-i18n="about_box2_title">Experiencia Multinacional</h4>
+                            <p class="text-xs text-slate-500 mt-1" data-i18n="about_box2_desc">Conocimiento profundo de normativas internacionales y mejores prácticas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Element / Value Proposition -->
+                <div class="lg:col-span-6 relative">
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-brand-cyan/20 rounded-full blur-2xl"></div>
+                        
+                        <div class="space-y-6 relative z-10">
+                            <h3 class="text-2xl font-bold border-b border-slate-700 pb-4" data-i18n="value_title">
+                                Nuestra Propuesta de Valor
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-cyan/20 text-brand-cyan flex items-center justify-center shrink-0 mt-1">
+                                        <i class="fa-solid fa-bullseye"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm" data-i18n="val1_title">Enfoque Resultados de Negocio</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5" data-i18n="val1_desc">No solo implementamos software; optimizamos la rentabilidad y la visibilidad de su operación financiera.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-cyan/20 text-brand-cyan flex items-center justify-center shrink-0 mt-1">
+                                        <i class="fa-solid fa-diagram-project"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm" data-i18n="val2_title">Metodología Rigurosa</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5" data-i18n="val2_desc">Aplicamos estándares PMI y marcos metodológicos ágiles para garantizar entregas a tiempo y en presupuesto.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-cyan/20 text-brand-cyan flex items-center justify-center shrink-0 mt-1">
+                                        <i class="fa-solid fa-handshake"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm" data-i18n="val3_title">Socio Tecnológico Integral</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5" data-i18n="val3_desc">Acompañamos desde el diagnóstico conceptual hasta el soporte post-go-live.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ventajas" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2" data-i18n="why_subtitle">Ventajas Competitivas</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="why_title">
+                    ¿Por qué elegir a FINACCOUNTECH?
+                </p>
+                <p class="mt-4 text-slate-400 text-base" data-i18n="why_desc">
+                    Combinación única de conocimiento contable, habilidades tecnológicas, cumplimiento normativo y liderazgo de proyectos internacionales.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Advantage 1 -->
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/60 hover:border-brand-cyan/50 transition-colors">
+                    <div class="text-brand-cyan text-3xl mb-4">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2" data-i18n="adv1_title">Visión Global & Bilingüe</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="adv1_desc">
+                        Capacidad de interacción directa con ejecutivos, proveedores y equipos corporativos internacionales sin barreras de idioma.
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/60 hover:border-brand-cyan/50 transition-colors">
+                    <div class="text-brand-cyan text-3xl mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2" data-i18n="adv2_title">Metodología PMI & Agile</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="adv2_desc">
+                        Gestión rigurosa del alcance, tiempo y presupuesto con herramientas avanzadas de gobernanza de proyectos.
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/60 hover:border-brand-cyan/50 transition-colors">
+                    <div class="text-brand-cyan text-3xl mb-4">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2" data-i18n="adv3_title">Experiencia Multinacional</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="adv3_desc">
+                        Consultores con trayectoria comprobada liderando proyectos complejos en empresas Fortune 500 y grupos regionales.
+                    </p>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/60 hover:border-brand-cyan/50 transition-colors">
+                    <div class="text-brand-cyan text-3xl mb-4">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2" data-i18n="adv4_title">Tecnología de Vanguardia</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="adv4_desc">
+                        Conocimiento actualizado en herramientas ERP Cloud, automatización RPA e Inteligencia Artificial aplicada a finanzas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-slate-950 text-slate-300 pt-20 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12 pb-16 border-b border-slate-800">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full border-2 border-brand-cyan flex items-center justify-center text-brand-cyan font-bold">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-extrabold text-white tracking-tight">FINACCOUNTECH <span class="text-xs text-brand-cyan">S.A.S.</span></span>
+                            <p class="text-[10px] text-slate-400 uppercase tracking-widest">Global Finance, Accounting & Technology</p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-md" data-i18n="footer_desc">
+                        Contáctenos hoy para agendar una evaluación inicial de sus sistemas financieros, proyectos de ERP, implementación SAGRILAFT/PTEE o estructuración de Servicios Compartidos.
+                    </p>
+
+                    <div class="space-y-3 text-sm pt-2">
+                        <div class="flex items-center space-x-3 text-slate-300">
+                            <i class="fa-solid fa-envelope text-brand-cyan w-5"></i>
+                            <span>contacto@finaccountech.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-slate-300">
+                            <i class="fa-solid fa-phone text-brand-cyan w-5"></i>
+                            <span>+57 (601) 000-0000 / +1 (800) 000-0000</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-slate-300">
+                            <i class="fa-solid fa-location-dot text-brand-cyan w-5"></i>
+                            <span data-i18n="footer_location">Colombia & Soporte Regional LATAM / Global</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="lg:col-span-7 bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="form_title">Inicie una Conversación</h3>
+                    <p class="text-xs text-slate-400 mb-6" data-i18n="form_subtitle">Complete el formulario y uno de nuestros consultores senior se pondrá en contacto a la brevedad.</p>
+
+                    <form id="contact-form" action="https://formspree.io/f/mzedzblb" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="lbl_name">Nombre Completo *</label>
+                                <input type="text" id="name" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Ej. Carlos Mendoza">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="lbl_email">Correo Corporativo *</label>
+                                <input type="email" id="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="carlos@empresa.com">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="company" class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="lbl_company">Empresa</label>
+                                <input type="text" id="company" name="company" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Nombre de su organización">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="lbl_service">Servicio de Interés</label>
+                                <select id="service" name="service" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan transition-colors">
+                                    <option value="jointerp" data-i18n="opt_jointerp">Joint ERP</option>
+									<option value="erp" data-i18n="opt_erp">Implementación / Optimización ERP</option>
+                                    <option value="transformation" data-i18n="opt_tf">Transformación Financiera</option>
+                                    <option value="ssc" data-i18n="opt_ssc">Centros de Servicios Compartidos (SSC)</option>
+                                    <option value="laft" data-i18n="opt_laft">Sistemas LAFT / SAGRILAFT / PTEE & Oficial de Cumplimiento</option>
+                                    <option value="other" data-i18n="opt_other">Otro Requerimiento</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="lbl_msg">Mensaje o Detalle del Proyecto *</label>
+                            <textarea id="message" name="message" rows="3" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Describa brevemente las necesidades de su empresa..."></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" data-i18n="btn_submit" class="w-full bg-brand-cyan hover:bg-brand-darkCyan text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+
+                    <!-- Confirmation Message Box -->
+                    <div id="form-message" class="hidden mt-4 p-4 rounded-lg bg-emerald-950/80 border border-emerald-500 text-emerald-200 text-sm flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-xl text-emerald-400"></i>
+                        <span data-i18n="msg_success">¡Gracias por contactarnos! Su mensaje ha sido enviado exitosamente. Un consultor se comunicará pronto.</span>
+                    </div>
+
+                    <!-- Error Message Box -->
+                    <div id="form-error" class="hidden mt-4 p-4 rounded-lg bg-rose-950/80 border border-rose-500 text-rose-200 text-sm flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-exclamation text-xl text-rose-400"></i>
+                        <span data-i18n="msg_error">Ocurrió un error al enviar el formulario. Por favor intente nuevamente o escríbanos directamente a nuestro correo.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Footer -->
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 space-y-4 md:space-y-0">
+                <p>&copy; 2026 FINACCOUNTECH S.A.S. (Global Finance, Accounting & Technology S.A.S.). <span data-i18n="rights">Todos los derechos reservados.</span></p>
+                <div class="flex space-x-6">
+                    <a href="#" data-i18n="terms" class="hover:text-brand-cyan transition-colors">Términos de Servicio</a>
+                    <a href="#" data-i18n="privacy" class="hover:text-brand-cyan transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-brand-cyan transition-colors">LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            es: {
+                nav_home: "Inicio",
+                nav_services: "Servicios",
+                nav_mv: "Misión y Visión",
+                nav_about: "Sobre Nosotros",
+                nav_why: "Por Qué Elegirnos",
+                nav_contact: "Contacto",
+                nav_cta: "Agendar Consulta",
+                
+                hero_badge: "Consultoría Financiera & Tecnológica Global",
+                hero_title: 'Transformación Financiera, <span class="cyan-gradient-text">ERPs & Operaciones</span> de Clase Mundial',
+                hero_desc: "Impulsamos la eficiencia operativa e implementación tecnológica en empresas multinacionales mediante consultoría experta en ERPs (Oracle Cloud, SAP), Centros de Servicios Compartidos (SSC), cumplimiento SAGRILAFT / PTEE y automatización financiera.",
+                hero_btn_contact: 'Contactar un Consultor <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>',
+                hero_btn_services: "Descubrir Servicios",
+                
+                badge_bilingual_num: "100%",
+                badge_bilingual_text: "Bilingüe (ES / EN)",
+                badge_exp_num: "Global",
+                badge_exp_text: "Experiencia Multinacional",
+                badge_pmi_num: "PMI",
+                badge_pmi_text: "Gestión de Proyectos",
+
+                hero_card_1: "Support for the company's growth",
+				hero_card_2: "ERP Implementaion - Joint ERP",
+                hero_card_3: "Shared Services Center (SSC) desde cero",
+                hero_card_4: "Sistemas SAGRILAFT / PTEE & Cumplimiento",
+
+                services_subtitle: "Nuestras Soluciones",
+                services_title: "Servicios Especializados en Finanzas & Tecnología",
+                services_desc: "Diseñamos e implementamos estrategias que optimizan los procesos contables, financieros y de cumplimiento normativo en su organización con estándares corporativos globales.",
+
+                s1_title: "Implementación & Optimización de ERPs",
+                s1_desc: "Lideramos proyectos de implementación, migración y parametrización de ERPs líderes del mercado. Garantizamos una transición limpia e integración contable fluida.",
+                s1_bullet1: "Oracle Fusion Cloud & SAP S/4HANA",
+                s1_bullet2: "Integración de Herramientas (Coupa, BlackLine)",
+                s1_bullet3: "Pruebas UAT & Migración de Datos",
+
+                s2_title: "Transformación Financiera & Rediseño",
+                s2_desc: "Rediseñamos flujos contables y financieros para maximizar la productividad, reduciendo tiempos de cierre operativo y mejorando el control interno.",
+                s2_bullet1: "Optimización de Cierre Contable (Record-to-Report)",
+                s2_bullet2: "Automatización & Reportes Financieros (BI)",
+                s2_bullet3: "Estandarización de Políticas Financieras",
+
+                s3_title: "Centros de Servicios Compartidos (SSC)",
+                s3_desc: "Diseño, migración e implementación de modelos de Servicios Compartidos para operaciones multinacionales y transfronterizas.",
+                s3_bullet1: "Estrategia de Migración y Transition Management",
+                s3_bullet2: "Definición de SLAs y KPIs de Rendimiento",
+                s3_bullet3: "Capacitación de Equipos Bilingües",
+
+                s4_title: "Sistemas LAFT, SAGRILAFT & PTEE",
+                s4_desc: "Diseño, implementación y auditoría de sistemas de gestión de riesgos LA/FT/FPADM y programas de transparencia ética (PTEE), además de servicio de Oficial de Cumplimiento.",
+                s4_bullet1: "Diseño e Implementación SAGRILAFT y PTEE",
+                s4_bullet2: "Oficial de Cumplimiento Externalizado",
+                s4_bullet3: "Debida Diligencia & Auditoría de Riesgos",
+
+                learn_more: "Saber más",
+
+                mv_subtitle: "Nuestra Filosofía",
+                mv_title: "Misión, Visión & Valores Corporativos",
+                mv_desc: "El marco estratégico que guía nuestras decisiones y el compromiso con nuestros clientes globales.",
+                
+                mission_title: "Misión",
+                mission_desc: "Proporcionar soluciones integrales de consultoría en Finanzas, Contabilidad y Tecnología a organizaciones globales y multinacionales, optimizando sus procesos operativos e implementando ERPs y sistemas de cumplimiento de clase mundial con estándares de alta calidad, ética y precisión.",
+
+                vision_title: "Visión",
+                vision_desc: "Ser reconocidos internacionalmente como la firma consultora referente en transformación financiera, implementaciones ERP y gobierno corporativo en LATAM y Norteamérica, destacándonos por la excelencia de nuestro equipo bilingüe y el impacto sostenible en nuestros clientes.",
+
+                values_title: "Valores Fundamentales",
+                val_1_t: "Excelencia Financiera",
+                val_1_d: "Rigurosidad técnica y calidad analítica en cada proyecto contable y tecnológico.",
+                val_2_t: "Integridad & Cumplimiento",
+                val_2_d: "Alineación estricta a normativas éticas, legales y de transparencia internacional.",
+                val_3_t: "Innovación Tecnológica",
+                val_3_d: "Adopción continua de mejores prácticas en ERPs, BI y automatización.",
+                val_4_t: "Compromiso Bilingüe",
+                val_4_d: "Comunicación fluida y adaptabilidad cultural en ambientes multiculturales.",
+
+                about_subtitle: "Sobre Nosotros",
+                about_p1: "Somos una firma consultora especializada en la convergencia estratégica entre <strong>Finanzas, Contabilidad y Tecnologías de la Información</strong>. Nacemos para responder a la necesidad de las organizaciones modernas de contar con procesos ágiles, escalables y respaldados por sistemas ERP de vanguardia.",
+                about_p2: "Nuestro equipo está conformado por profesionales <strong>100% bilingües (Español / Inglés)</strong> con extensa trayectoria ejecutiva en entornos multinacionales y corporativos en LATAM y Norteamérica.",
+                
+                about_box1_title: "Equipo Bilingüe",
+                about_box1_desc: "Soporte y gestión nativa en inglés y español para proyectos globales.",
+                about_box2_title: "Experiencia Multinacional",
+                about_box2_desc: "Conocimiento profundo de normativas internacionales y mejores prácticas.",
+
+                value_title: "Nuestra Propuesta de Valor",
+                val1_title: "Enfoque Resultados de Negocio",
+                val1_desc: "No solo implementamos software; optimizamos la rentabilidad y la visibilidad de su operación financiera.",
+                val2_title: "Metodología Rigurosa",
+                val2_desc: "Aplicamos estándares PMI y marcos metodológicos ágiles para garantizar entregas a tiempo y en presupuesto.",
+                val3_title: "Socio Tecnológico Integral",
+                val3_desc: "Acompañamos desde el diagnóstico conceptual hasta el soporte post-go-live.",
+
+                why_subtitle: "Ventajas Competitivas",
+                why_title: "¿Por qué elegir a FINACCOUNTECH?",
+                why_desc: "Combinación única de conocimiento contable, habilidades tecnológicas, cumplimiento normativo y liderazgo de proyectos internacionales.",
+
+                adv1_title: "Visión Global & Bilingüe",
+                adv1_desc: "Capacidad de interacción directa con ejecutivos, proveedores y equipos corporativos internacionales sin barreras de idioma.",
+                adv2_title: "Metodología PMI & Agile",
+                adv2_desc: "Gestión rigurosa del alcance, tiempo y presupuesto con herramientas avanzadas de gobernanza de proyectos.",
+                adv3_title: "Experiencia Multinacional",
+                adv3_desc: "Consultores con trayectoria comprobada liderando proyectos complejos en empresas Fortune 500 y grupos regionales.",
+                adv4_title: "Tecnología de Vanguardia",
+                adv4_desc: "Conocimiento actualizado en herramientas ERP Cloud, automatización RPA e Inteligencia Artificial aplicada a finanzas.",
+
+                footer_desc: "Contáctenos hoy para agendar una evaluación inicial de sus sistemas financieros, proyectos de ERP, implementación SAGRILAFT/PTEE o estructuración de Servicios Compartidos.",
+                footer_location: "Colombia & Soporte Regional LATAM / Global",
+
+                form_title: "Inicie una Conversación",
+                form_subtitle: "Complete el formulario y uno de nuestros consultores senior se pondrá en contacto a la brevedad.",
+                lbl_name: "Nombre Completo *",
+                lbl_email: "Correo Corporativo *",
+                lbl_company: "Empresa",
+                lbl_service: "Servicio de Interés",
+                opt_jointerp: "Joint ERP",
+                opt_erp: "Implementación / Optimización ERP",
+                opt_tf: "Transformación Financiera",
+                opt_ssc: "Centros de Servicios Compartidos (SSC)",
+                opt_laft: "Sistemas LAFT / SAGRILAFT / PTEE & Oficial de Cumplimiento",
+                opt_other: "Otro Requerimiento",
+                lbl_msg: "Mensaje o Detalle del Proyecto *",
+                btn_submit: "Enviar Solicitud",
+                msg_success: "¡Gracias por contactarnos! Su mensaje ha sido enviado exitosamente. Un consultor se comunicará pronto.",
+                msg_error: "Ocurrió un error al enviar el formulario. Por favor intente nuevamente o escríbanos a contacto@finaccountech.com",
+
+                rights: "Todos los derechos reservados.",
+                terms: "Términos de Servicio",
+                privacy: "Política de Privacidad"
+            },
+            en: {
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_mv: "Mission & Vision",
+                nav_about: "About Us",
+                nav_why: "Why Choose Us",
+                nav_contact: "Contact",
+                nav_cta: "Schedule Consultation",
+
+                hero_badge: "Global Finance & Tech Consulting",
+                hero_title: 'Financial Transformation, <span class="cyan-gradient-text">ERPs & Operations</span> World-Class Solutions',
+                hero_desc: "We drive operational efficiency and technology implementation for multinational enterprises through expert consulting in ERPs (Oracle Cloud, SAP), Shared Services Centers (SSC), SAGRILAFT/PTEE compliance, and financial automation.",
+                hero_btn_contact: 'Contact a Consultant <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>',
+                hero_btn_services: "Explore Services",
+
+                badge_bilingual_num: "100%",
+                badge_bilingual_text: "Bilingual (EN / ES)",
+                badge_exp_num: "Global",
+                badge_exp_text: "Multinational Expertise",
+                badge_pmi_num: "PMI",
+                badge_pmi_text: "Project Governance",
+
+                hero_card_1: "Acompañamos el crecimiento de la empresa",
+				hero_card_2: "ERP Implementaion - Joint ERP",
+                hero_card_3: "Shared Services Center (SSC) from ground up",
+                hero_card_4: "SAGRILAFT / PTEE & Compliance Systems",
+
+                services_subtitle: "Our Solutions",
+                services_title: "Specialized Finance & Technology Services",
+                services_desc: "We design and execute strategies to streamline accounting, financial operations, and regulatory compliance aligning with global corporate standards.",
+
+                s1_title: "ERP Implementation & Optimization",
+                s1_desc: "We lead implementation, migration, and optimization projects for market-leading ERPs, ensuring seamless accounting integration and smooth cutover.",
+                s1_bullet1: "Oracle Fusion Cloud & SAP S/4HANA",
+                s1_bullet2: "Ecosystem Tools Integration (Coupa, BlackLine)",
+                s1_bullet3: "UAT Testing & Data Migration Management",
+
+                s2_title: "Financial Transformation & Redesign",
+                s2_desc: "We re-engineer accounting workflows to maximize productivity, accelerate month-end closing cycles, and enhance internal controls.",
+                s2_bullet1: "Month-End Close Optimization (Record-to-Report)",
+                s2_bullet2: "Financial Automation & BI Reporting",
+                s2_bullet3: "Financial Policy & Governance Standardization",
+
+                s3_title: "Shared Services Centers (SSC)",
+                s3_desc: "End-to-end design, transition, and implementation of Shared Services models for cross-border and regional operations.",
+                s3_bullet1: "Migration Strategy & Transition Management",
+                s3_bullet2: "SLAs & Performance KPIs Definition",
+                s3_bullet3: "Bilingual Team Talent Enablement",
+
+                s4_title: "AML, SAGRILAFT & Compliance Systems",
+                s4_desc: "Design, implementation, and auditing of AML/CFT risk management systems, business ethics programs (PTEE), and outsourced Compliance Officer services.",
+                s4_bullet1: "SAGRILAFT & PTEE Framework Design",
+                s4_bullet2: "Outsourced Compliance Officer Services",
+                s4_bullet3: "Due Diligence & Risk Management Audits",
+
+                learn_more: "Learn More",
+
+                mv_subtitle: "Our Philosophy",
+                mv_title: "Mission, Vision & Core Values",
+                mv_desc: "The strategic framework guiding our decisions and our unwavering commitment to global clients.",
+
+                mission_title: "Mission",
+                mission_desc: "To deliver comprehensive Finance, Accounting, and Technology consulting solutions to global and multinational organizations, optimizing operational workflows and implementing world-class ERPs and compliance systems with rigorous precision, ethics, and high quality.",
+
+                vision_title: "Vision",
+                vision_desc: "To be internationally recognized as the benchmark consulting firm in financial transformation, ERP implementations, and corporate compliance across LATAM and North America, distinguished by our bilingual team's excellence and sustainable client impact.",
+
+                values_title: "Core Values",
+                val_1_t: "Financial Excellence",
+                val_1_d: "Technical rigor and analytical quality across every accounting and tech initiative.",
+                val_2_t: "Integrity & Compliance",
+                val_2_d: "Strict adherence to international ethical, legal, and transparency standards.",
+                val_3_t: "Technological Innovation",
+                val_3_d: "Continuous adoption of best practices in Cloud ERPs, BI, and automation.",
+                val_4_t: "Bilingual Commitment",
+                val_4_d: "Seamless communication and cultural adaptability in cross-border environments.",
+
+                about_subtitle: "About Us",
+                about_p1: "We are a specialized consulting firm operating at the strategic intersection of <strong>Finance, Accounting, and Information Technology</strong>. We empower modern organizations with agile, scalable processes backed by cutting-edge ERP systems.",
+                about_p2: "Our team consists of <strong>100% bilingual professionals (English / Spanish)</strong> with extensive executive leadership experience in multinational and corporate environments across LATAM and North America.",
+
+                about_box1_title: "Bilingual Team",
+                about_box1_desc: "Native English and Spanish delivery and project management for global teams.",
+                about_box2_title: "Multinational Track Record",
+                about_box2_desc: "Deep knowledge of international financial standards and corporate governance.",
+
+                value_title: "Our Value Proposition",
+                val1_title: "Business Results Focus",
+                val1_desc: "We do not just implement software; we enhance profitability and financial visibility across your operations.",
+                val2_title: "Rigorous Methodology",
+                val2_desc: "We apply PMI standards and Agile frameworks to guarantee on-time, within-budget execution.",
+                val3_title: "End-to-End Tech Partner",
+                val3_desc: "We accompany your team from initial diagnostic through post-go-live hypercare support.",
+
+                why_subtitle: "Competitive Advantages",
+                why_title: "Why Choose FINACCOUNTECH?",
+                why_desc: "A unique blend of accounting expertise, technological mastery, regulatory compliance, and international project leadership.",
+
+                adv1_title: "Global & Bilingual Mindset",
+                adv1_desc: "Seamless collaboration with corporate C-level executives, vendors, and cross-functional global teams.",
+                adv2_title: "PMI & Agile Frameworks",
+                adv2_desc: "Disciplined governance of scope, timeline, and resources using modern PM tools.",
+                adv3_title: "Multinational Expertise",
+                adv3_desc: "Senior consultants with proven leadership in Fortune 500 corporations and regional enterprises.",
+                adv4_title: "Cutting-Edge Tech Stack",
+                adv4_desc: "Up-to-date expertise in Cloud ERPs, RPA automation, and AI applications for finance.",
+
+                footer_desc: "Contact us today to schedule an initial consultation regarding your financial systems, ERP initiatives, SAGRILAFT/PTEE compliance, or Shared Services structuring.",
+                footer_location: "Colombia & LATAM / Global Regional Support",
+
+                form_title: "Start a Conversation",
+                form_subtitle: "Fill out the form below and one of our senior consultants will reach out shortly.",
+                lbl_name: "Full Name *",
+                lbl_email: "Corporate Email *",
+                lbl_company: "Company",
+                lbl_service: "Service of Interest",
+                opt_jointerp: "Joint ERP",
+                opt_erp: "ERP Implementation / Optimization",
+                opt_tf: "Financial Transformation",
+                opt_ssc: "Shared Services Centers (SSC)",
+                opt_laft: "LAFT / SAGRILAFT / PTEE Systems & Compliance Officer",
+                opt_other: "Other Inquiries",
+                lbl_msg: "Message or Project Details *",
+                btn_submit: "Submit Request",
+                msg_success: "Thank you for reaching out! Your message has been sent successfully. A consultant will get in touch shortly.",
+                msg_error: "An error occurred while sending your message. Please try again or email us directly at contacto@finaccountech.com",
+
+                rights: "All rights reserved.",
+                terms: "Terms of Service",
+                privacy: "Privacy Policy"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Toggle Language Buttons Styling
+            const btnEs = document.getElementById('lang-es-btn');
+            const btnEn = document.getElementById('lang-en-btn');
+
+            if (lang === 'es') {
+                btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 bg-brand-cyan text-white shadow-sm";
+                btnEn.className = "px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 text-slate-600 hover:text-brand-cyan";
+            } else {
+                btnEn.className = "px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 bg-brand-cyan text-white shadow-sm";
+                btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-md transition-all duration-200 text-slate-600 hover:text-brand-cyan";
+            }
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Translate elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // Mobile Menu Interactivity
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler for Real Notifications via Formspree AJAX
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const messageBox = document.getElementById('form-message');
+            const errorBox = document.getElementById('form-error');
+
+            messageBox.classList.add('hidden');
+            errorBox.classList.add('hidden');
+
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> ...';
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    messageBox.classList.remove('hidden');
+                    setTimeout(() => {
+                        messageBox.classList.add('hidden');
+                    }, 8000);
+                } else {
+                    errorBox.classList.remove('hidden');
+                }
+            } catch (err) {
+                errorBox.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+    </script>
+</body>
+</html>
